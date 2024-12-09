@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="modal-overlay" id="modalOverlay">
+        <div id="modalContent" class="modal-content"></div>
+      </div>
+      <section class="new-container">
+        <h2 id="createMonster" class="dropdown-toggle">Create new Monster</h2>
+        <div id="dropdownContent" class="dropdown-content">
+          <form>
+            <h3>Name</h3>
+            <input type="text" required />
+            <h3>Specialty</h3>
+            <input type="text" required />
+            <h3>Image</h3>
+            <input type="file" accept="image/*" required />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <button id="resetButton" class="reset-button">RESET</button>
+      </section>
+      <div class="monster-cards-container"></div>
+      <div class="teams-container">
+        <h2>User team</h2>
+        <div class="cards-container"></div>
+      </div>
+    </main>
+    <script src="/src/main.ts"></script>
+  </body>
+</html>

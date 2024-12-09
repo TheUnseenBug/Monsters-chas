@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=IM+Fell+English+SC&family=Butcherman&family=Nosifer&display=swap");
+:root {
+  --dark-midnight: #1b1b2f;
+  --haunted-purple: #3d315b;
+  --pumpkin-orange: #ff7518;
+  --ghoulish-green: #2ecc71;
+  --bone-white: #e0e0e0;
+  --blood-red: #c0392b;
+  --dusty-grey: #7d7d7d;
+  --border-radius: 15px;
+  --font-heading: "Creepster", Impact, serif;
+  --font-body: "IM Fell English SC", Georgia, serif;
+  --font-subheading: "Butcherman", Arial Black, sans-serif;
+  --font-accent: "Nosifer", Courier New, monospace;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--bone-white);
+}
+
+html,
+body,
+main {
+  height: 100vh;
+  width: 100vw;
+}
+.main-container {
+  background-color: var(--blood-red);
+}
+
+button {
+  background-color: var(--pumpkin-orange);
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px; /* Rounded edges */
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+}
+
+button:hover {
+  background-color: var(--haunted-purple);
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+}
+
+button:active {
+  transform: translateY(1px); /* Slight press effect */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-content #close {
+  color: var(--dark-midnight);
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  padding: 2.5px 5px;
+}
+
+.modal-content button {
+  color: var(--dark-midnight);
+}
+.modalTitle,
+.modalDescription {
+  color: var(--dark-midnight);
+  font-size: medium;
+}
+
+.close-button {
+  cursor: pointer;
+}
+
+.monster-cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row: repeat(2, 1fr);
+  max-width: 980px;
+  margin: 5rem auto;
+  position: relative;
+  z-index: 1;
+}
+
+.monster-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0.8rem;
+  color: var(--bone-white);
+  /* border: 3px solid var(--bone-white); */
+  border-radius: var(--border-radius);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.monster-card :hover {
+  cursor: pointer;
+}
+
+.card-name,
+.card-specialty {
+  text-align: center;
+  font-family: var(--font-body);
+  width: 100%;
+}
+
+.card-name {
+  padding: 1rem;
+  background-color: var(--haunted-purple);
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: var(--font-accent);
+}
+
+.card-specialty {
+  padding: 1rem;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  padding: 1rem;
+  color: var(--bone-white);
+}
+
+.teams-container {
+  margin: auto;
+  text-align: center;
+  max-width: 980px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+
+.reset-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--haunted-purple);
+  color: var(--bone-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.reset-button:hover {
+  background-color: var(--pumpkin-orange); /* Change color on hover */
+}
+
+.dropdown-content {
+  display: none;
+  background-color: var(--blood-red);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 50%;
+  margin: auto;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  background-color: var(--haunted-purple);
+  width: 30%;
+  border-radius: 999rem;
+  padding: 1rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dropdown-toggle:hover {
+  background-color: var(--pumpkin-orange);
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+}
+
+.dropdown-toggle:active {
+  transform: translateY(1px); /* Slight press effect */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.dropdown-content h3 {
+  color: var(--bone-white);
+  font-family: var(--font-heading);
+  margin-bottom: 5px;
+}
+
+.dropdown-content input[type="text"],
+.dropdown-content input[type="file"] {
+  padding: 10px;
+  border: 1px solid var(--dusty-grey);
+  border-radius: var(--border-radius);
+  background-color: var(--haunted-purple);
+  color: var(--bone-white);
+}
+
+.dropdown-content input[type="text"]:focus,
+.dropdown-content input[type="file"]:focus {
+  outline: none;
+  border-color: var(--pumpkin-orange);
+}
+
+.dropdown-content button {
+  padding: 10px;
+  background-color: var(--pumpkin-orange);
+  color: var(--bone-white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: var(--haunted-purple);
+}
